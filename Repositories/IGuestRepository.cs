@@ -11,7 +11,7 @@ namespace PruebaNET_CarolinaBustamante.Repositories
         Task<IEnumerable<GuestDTO>> Get();
         Task<GuestDTO> GetById(int id);
         Task<GuestDTO> GetByKeyword(string keyword);
-        Task<GuestDTO> Register(GuestDTO guestDTO);
+        Task Register(GuestDTO guestDTO);
         Task Delete(int id);
         Task Update(int id, GuestDTO guestDTO);
     }

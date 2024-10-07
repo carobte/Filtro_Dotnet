@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using PruebaNET_CarolinaBustamante.Data;
 using PruebaNET_CarolinaBustamante.DTO.Guest;
+using PruebaNET_CarolinaBustamante.Models;
 using PruebaNET_CarolinaBustamante.Repositories;
 
 namespace PruebaNET_CarolinaBustamante.Services
@@ -12,14 +13,25 @@ namespace PruebaNET_CarolinaBustamante.Services
     public class GuestService : IGuestRepository
     {
         protected readonly AppDbContext _context;
+
+        public GuestService(AppDbContext context)
+        {
+            _context = context;
+        }
+
         public async Task Delete(int id)
         {
-            throw new NotImplementedException();
+            var guest = await _context.Guests.FindAsync(id);
+            if (guest != null)
+            {
+                _context.Guests.Remove(guest);
+                await _context.SaveChangesAsync();
+            }
         }
 
         public async Task<IEnumerable<GuestDTO>> Get()
         {
-            return await _context.Guests
+            var guests = await _context.Guests
             .Select(guest => new GuestDTO
             {
                 Id = guest.Id,
@@ -31,6 +43,8 @@ namespace PruebaNET_CarolinaBustamante.Services
                 BirthDate = guest.BirthDate
             })
             .ToListAsync();
+
+            return guests;
         }
 
         public async Task<GuestDTO> GetById(int id)
@@ -73,23 +87,44 @@ namespace PruebaNET_CarolinaBustamante.Services
             })
 
             .FirstOrDefaultAsync();
-            
+
             if (guest == null)
             {
                 return null;
             }
-            
+
             return guest;
         }
 
-        public async Task<GuestDTO> Register(GuestDTO guestDTO)
+        public async Task Register(GuestDTO guestDTO)
         {
-            throw new NotImplementedException();
+            var guest = new Guest
+            {
+                FirstName = guestDTO.FirstName,
+                LastName = guestDTO.LastName,
+                Email = guestDTO.Email,
+                IdNumber = guestDTO.IdNumber,
+                Phone = guestDTO.PhoneNumber,
+                BirthDate = guestDTO.BirthDate
+            };
+            await _context.Guests.AddAsync(guest);
+            await _context.SaveChangesAsync();
         }
 
         public async Task Update(int id, GuestDTO guestDTO)
         {
-            throw new NotImplementedException();
+        var guest = await _context.Guests.FindAsync(id);
+        if (guest != null)
+        {
+            guest.FirstName = guestDTO.FirstName;
+            guest.LastName = guestDTO.LastName;
+            guest.Email = guestDTO.Email;
+            guest.IdNumber = guestDTO.IdNumber;
+            guest.Phone = guestDTO.PhoneNumber;
+            guest.BirthDate = guestDTO.BirthDate;
+            
+            await _context.SaveChangesAsync();
+        }
         }
     }
 }

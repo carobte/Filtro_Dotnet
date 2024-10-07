@@ -39,7 +39,7 @@ namespace PruebaNET_CarolinaBustamante.Controllers.v1.Auth
 
             if (token == null)
             {
-                return Unauthorized("You don't have permissions");
+                return Unauthorized("An error ocurred during the login, please check your credentials and make sure you have permissions");
             }
 
             else { return Ok($"Here's the token: {token}"); }
