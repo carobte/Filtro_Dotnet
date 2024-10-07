@@ -15,6 +15,13 @@ namespace PruebaNET_CarolinaBustamante.Services
     {
         protected readonly AppDbContext _context;
         protected readonly Utilities _utilities;
+
+        public EmployeeService(AppDbContext context, Utilities utilities)
+        {
+            _context = context;
+            _utilities = utilities;
+        }
+
         public async Task Register(RegisterEmployeeDTO employee)
         {
             employee.Password = _utilities.EncryptSHA256(employee.Password);
