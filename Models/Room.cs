@@ -35,5 +35,7 @@ namespace Filtro_Dotnet.Models
         [ForeignKey("room_type_id")]
         [Column("room_type_id")]
         public required int RoomTypeId { get; set; }
+
+        public ICollection<Booking> Bookings { get; set; }
     }
 }

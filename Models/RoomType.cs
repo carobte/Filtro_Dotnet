@@ -22,7 +22,7 @@ namespace Filtro_Dotnet.Models
         
         [Column("description")]
         [StringLength(255)]        
-        public string? Description { get; set; }
+        public string Description { get; set; }
         
         public ICollection<Room> Rooms { get; set; }
 
