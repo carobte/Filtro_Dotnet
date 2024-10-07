@@ -2,6 +2,8 @@ using System.Text;
 using DotNetEnv;
 using Filtro_Dotnet.Config;
 using Filtro_Dotnet.Data;
+using Filtro_Dotnet.Repositories;
+using Filtro_Dotnet.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -23,6 +25,9 @@ var connectionString = $"server={host};port={port};database={databaseName};uid={
 // Add services to the container.
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.Parse("8.0.2-mysql")));
+
+//  Add Repositories and services
+builder.Services.AddScoped<IEmployeeRepository, EmployeeService>();
 
 // Add Utilites
 builder.Services.AddSingleton<Utilities>();
