@@ -18,16 +18,17 @@ namespace PruebaNET_CarolinaBustamante.Models
         [ForeignKey("room_id")]
         [Column("room_id")]
         public required int RoomId { get; set; }
-
-        
+        public Room Room { get; set; }
+       
         [ForeignKey("guest_id")]
         [Column("guest_id")]
         public required int GuestId { get; set; }
-
+        public Guest Guest { get; set; }
         
         [ForeignKey("employee_id")]
         [Column("employee_id")]
         public required int EmployeeId { get; set; }
+        public Employee Employee { get; set; }
 
         [Column("start_date")]
         [Required(ErrorMessage = "Phone number is required.")]
