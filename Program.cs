@@ -30,6 +30,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<IEmployeeRepository, EmployeeService>();
 builder.Services.AddScoped<IRoomTypeRepository, RoomTypesService>();
 builder.Services.AddScoped<IRoomRepository, RoomService>();
+builder.Services.AddScoped<IGuestRepository, GuestService>();
+
 
 // Add Utilites
 builder.Services.AddSingleton<Utilities>();
