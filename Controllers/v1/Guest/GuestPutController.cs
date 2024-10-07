@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PruebaNET_CarolinaBustamante.DTO.Guest;
 using PruebaNET_CarolinaBustamante.Repositories;
@@ -12,6 +13,7 @@ namespace PruebaNET_CarolinaBustamante.Controllers.v1.Guest
     [ApiController]
     [Route("api/v1/guests")]
     [Tags("guests")]
+    [Authorize]
     public class GuestPutController : GuestController
     {
         public GuestPutController(IGuestRepository guestRepository) : base(guestRepository)

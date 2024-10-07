@@ -12,7 +12,7 @@ namespace PruebaNET_CarolinaBustamante.Controllers.v1.Auth
 {
     [ApiController]
     [Route("api/v1/auth")]
-    [Tags("auth")]
+    [Tags("auth employee")]
     public class RegisterController : AuthController
     {
         public RegisterController(IEmployeeRepository employeeRepository, Utilities utilities) : base(employeeRepository, utilities)

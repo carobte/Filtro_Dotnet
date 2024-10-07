@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PruebaNET_CarolinaBustamante.Controllers.v1.Room;
 using PruebaNET_CarolinaBustamante.Repositories;
@@ -12,12 +13,13 @@ namespace PruebaNET_CarolinaBustamante.Controllers.v1.Room
     [ApiController]
     [Route("api/v1/rooms")]
     [Tags("rooms")]
+    [Authorize]
     public class RoomGetController : RoomController
     {
         public RoomGetController(IRoomRepository roomRepository) : base(roomRepository)
         {
         }
-
+        
         [HttpGet]
         [SwaggerOperation(
          Summary = "Get Rooms",
