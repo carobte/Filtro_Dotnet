@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Filtro_Dotnet.Models;
-using Filtro_Dotnet.Seeders;
+using PruebaNET_CarolinaBustamante.Models;
+using PruebaNET_CarolinaBustamante.Seeders;
 using Microsoft.EntityFrameworkCore;
 
-namespace Filtro_Dotnet.Data
+namespace PruebaNET_CarolinaBustamante.Data
 {
     public class AppDbContext : DbContext
     {

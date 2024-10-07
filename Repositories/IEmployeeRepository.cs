@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Filtro_Dotnet.DTO.Auth;
+using PruebaNET_CarolinaBustamante.DTO.Auth;
 
-namespace Filtro_Dotnet.Repositories
+namespace PruebaNET_CarolinaBustamante.Repositories
 {
     public interface IEmployeeRepository
     {

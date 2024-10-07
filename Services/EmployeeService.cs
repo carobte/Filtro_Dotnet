@@ -2,14 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Filtro_Dotnet.Config;
-using Filtro_Dotnet.Data;
-using Filtro_Dotnet.DTO.Auth;
-using Filtro_Dotnet.Models;
-using Filtro_Dotnet.Repositories;
+using PruebaNET_CarolinaBustamante.Config;
+using PruebaNET_CarolinaBustamante.Data;
+using PruebaNET_CarolinaBustamante.DTO.Auth;
+using PruebaNET_CarolinaBustamante.Models;
+using PruebaNET_CarolinaBustamante.Repositories;
 using Microsoft.EntityFrameworkCore;
 
-namespace Filtro_Dotnet.Services
+namespace PruebaNET_CarolinaBustamante.Services
 {
     public class EmployeeService : IEmployeeRepository
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Filtro_Dotnet.DTO.Booking
+namespace PruebaNET_CarolinaBustamante.DTO.Booking
 {
     public class BookingDTO
     {

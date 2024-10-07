@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Filtro_Dotnet.Models;
+using PruebaNET_CarolinaBustamante.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Filtro_Dotnet.Seeders
+namespace PruebaNET_CarolinaBustamante.Seeders
 {
     public class RoomTypeSeeders
     {

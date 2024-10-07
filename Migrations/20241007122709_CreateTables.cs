@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Filtro_Dotnet.Migrations
+namespace PruebaNET_CarolinaBustamante.Migrations
 {
     /// <inheritdoc />
     public partial class CreateTables : Migration

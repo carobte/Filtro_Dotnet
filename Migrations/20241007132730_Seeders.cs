@@ -4,7 +4,7 @@
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace Filtro_Dotnet.Migrations
+namespace PruebaNET_CarolinaBustamante.Migrations
 {
     /// <inheritdoc />
     public partial class Seeders : Migration

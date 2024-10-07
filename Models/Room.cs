@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Filtro_Dotnet.Models
+namespace PruebaNET_CarolinaBustamante.Models
 {
     [Table("rooms")]
     public class Room

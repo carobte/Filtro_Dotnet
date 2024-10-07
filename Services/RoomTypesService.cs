@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Filtro_Dotnet.Data;
-using Filtro_Dotnet.DTO.RoomType;
-using Filtro_Dotnet.Models;
+using PruebaNET_CarolinaBustamante.Data;
+using PruebaNET_CarolinaBustamante.DTO.RoomType;
+using PruebaNET_CarolinaBustamante.Models;
 using Microsoft.EntityFrameworkCore;
 using PruebaNET_CarolinaBustamante.Repositories;
 

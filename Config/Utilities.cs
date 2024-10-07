@@ -6,10 +6,10 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using Filtro_Dotnet.Models;
+using PruebaNET_CarolinaBustamante.Models;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Filtro_Dotnet.Config
+namespace PruebaNET_CarolinaBustamante.Config
 {
     public class Utilities
     {

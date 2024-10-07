@@ -1,15 +1,13 @@
 using System.Text;
 using DotNetEnv;
-using Filtro_Dotnet.Config;
-using Filtro_Dotnet.Data;
-using Filtro_Dotnet.Repositories;
-using Filtro_Dotnet.Services;
+using PruebaNET_CarolinaBustamante.Config;
+using PruebaNET_CarolinaBustamante.Data;
+using PruebaNET_CarolinaBustamante.Repositories;
+using PruebaNET_CarolinaBustamante.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using PruebaNET_CarolinaBustamante.Repositories;
-using PruebaNET_CarolinaBustamante.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 Env.Load();

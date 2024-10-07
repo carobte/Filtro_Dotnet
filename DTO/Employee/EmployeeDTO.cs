@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Filtro_Dotnet.DTO.Employee
+namespace PruebaNET_CarolinaBustamante.DTO.Employee
 {
     public class EmployeeDTO
     {
