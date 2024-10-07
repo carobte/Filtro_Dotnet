@@ -96,5 +96,19 @@ namespace PruebaNET_CarolinaBustamante.Services
 
             return roomsOccupied;
         }
+        
+        public async Task<IEnumerable<RoomStatusDTO>> GetByStatus()
+        {
+            var rooms = await _context.Rooms
+            .OrderByDescending(room => room.Availability)
+            .Select(room => new RoomStatusDTO
+            {
+                Id = room.Id,
+                RoomNumber = room.RoomNumber,
+                Availability = room.Availability,
+            }).ToListAsync();
+            
+            return rooms;
+        }
     }
 }

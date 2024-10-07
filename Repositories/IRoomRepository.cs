@@ -10,6 +10,7 @@ namespace PruebaNET_CarolinaBustamante.Repositories
     {
         Task<IEnumerable<RoomDTO>> GetAll();
         Task<RoomDTO> GetById(int id);
+        Task<IEnumerable<RoomStatusDTO>> GetByStatus();
         Task<IEnumerable<RoomDTO>> GetAvailable();
         Task<IEnumerable<RoomDTO>> GetOccupied();
     }

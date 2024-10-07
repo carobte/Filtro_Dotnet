@@ -13,7 +13,6 @@ namespace PruebaNET_CarolinaBustamante.Controllers.v1.Room
     [ApiController]
     [Route("api/v1/rooms")]
     [Tags("rooms")]
-    [Authorize]
     public class RoomGetController : RoomController
     {
         public RoomGetController(IRoomRepository roomRepository) : base(roomRepository)
@@ -21,6 +20,7 @@ namespace PruebaNET_CarolinaBustamante.Controllers.v1.Room
         }
         
         [HttpGet]
+        [Authorize]
         [SwaggerOperation(
          Summary = "Get Rooms",
          Description = "Returns all the Rooms in database")]
@@ -40,6 +40,7 @@ namespace PruebaNET_CarolinaBustamante.Controllers.v1.Room
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         [SwaggerOperation(
            Summary = "Get room  by id",
            Description = "Returns the specific room information"
@@ -77,6 +78,7 @@ namespace PruebaNET_CarolinaBustamante.Controllers.v1.Room
         }
 
         [HttpGet("occupied")]
+        [Authorize]
         [SwaggerOperation(
          Summary = "Get occupied Rooms",
          Description = "Returns all the occupied Rooms in database")]
@@ -92,6 +94,22 @@ namespace PruebaNET_CarolinaBustamante.Controllers.v1.Room
                 return NoContent();
             }
             return Ok(roomsOccupied);
+        }
+        [HttpGet("status")]
+        [SwaggerOperation(
+         Summary = "Get Rooms ordered by availability",
+         Description = "Returns all the Rooms in database ordered by availability")]
+        [SwaggerResponse(200, "Ok: Returns all the Rooms in database ordered by availability")]
+        [SwaggerResponse(204, "No Content: There are not Rooms in the database ordered by availability")]
+        public async Task<IActionResult> GetByStatus()
+        {
+            var roomsAvailable = await _roomRepository.GetAvailable();
+
+            if (roomsAvailable == null || !roomsAvailable.Any())
+            {
+                return NoContent();
+            }
+            return Ok(roomsAvailable);
         }
     }
 }
