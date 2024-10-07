@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using PruebaNET_CarolinaBustamante.Repositories;
+using PruebaNET_CarolinaBustamante.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 Env.Load();
@@ -28,6 +30,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 //  Add Repositories and services
 builder.Services.AddScoped<IEmployeeRepository, EmployeeService>();
+builder.Services.AddScoped<IRoomTypeRepository, RoomTypesService>();
+
 
 // Add Utilites
 builder.Services.AddSingleton<Utilities>();
