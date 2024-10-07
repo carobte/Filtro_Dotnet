@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Filtro_Dotnet.Models;
+using Filtro_Dotnet.Seeders;
 using Microsoft.EntityFrameworkCore;
 
 namespace Filtro_Dotnet.Data
@@ -15,5 +16,12 @@ namespace Filtro_Dotnet.Data
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Guest> Guests { get; set; }
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+
+         protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            RoomTypeSeeders.Seed(modelBuilder);
+            RoomSeeders.Seed(modelBuilder);
+        } 
     }
 }
