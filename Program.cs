@@ -31,6 +31,7 @@ builder.Services.AddScoped<IEmployeeRepository, EmployeeService>();
 builder.Services.AddScoped<IRoomTypeRepository, RoomTypesService>();
 builder.Services.AddScoped<IRoomRepository, RoomService>();
 builder.Services.AddScoped<IGuestRepository, GuestService>();
+builder.Services.AddScoped<IBookingRepository, BookingService>();
 
 
 // Add Utilites

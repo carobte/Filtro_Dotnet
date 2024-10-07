@@ -7,12 +7,11 @@ namespace PruebaNET_CarolinaBustamante.DTO.Booking
 {
     public class BookingDTO
     {
-        public int Id { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
-        public double TotalCost { get; set; }
+        public DateOnly StartDate { get; set; }
+        public DateOnly EndDate { get; set; }
         public int RoomId { get; set; }
         public int GuestId { get; set; }
         public int EmployeeId { get; set; }
+        public double TotalCost { get; set; }
     }
 }
