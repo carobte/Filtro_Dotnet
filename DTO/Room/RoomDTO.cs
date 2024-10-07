@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Filtro_Dotnet.DTO.Room
 {
-    public class Room
+    public class RoomDTO
     {
         public int Id { get; set; }
         public required string RoomNumber { get; set; }
