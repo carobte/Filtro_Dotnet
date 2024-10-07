@@ -13,7 +13,8 @@ namespace Filtro_Dotnet.Config
 {
     public class Utilities
     {
-         public string EncryptSHA256(string input)
+        // Encryption method
+        public string EncryptSHA256(string input)
         {
             using (SHA256 sha256Hash = SHA256.Create())
             {
@@ -26,6 +27,8 @@ namespace Filtro_Dotnet.Config
                 return builder.ToString();
             }
         }
+
+        // JWT Generator
 
         public string GenerateJwtToken(Employee employee)
         {
@@ -40,7 +43,7 @@ namespace Filtro_Dotnet.Config
             var jwtAudience = Environment.GetEnvironmentVariable("JWT_AUDIENCE");
             var jwtExpiresIn = Environment.GetEnvironmentVariable("JWT_EXPIRES_IN");
 
-            // Validar que las variables existen
+            // Validate environment variables
             if (string.IsNullOrEmpty(jwtKey) || string.IsNullOrEmpty(jwtIssuer) || string.IsNullOrEmpty(jwtAudience))
             {
                 throw new InvalidOperationException("JWT configuration values are missing.");
