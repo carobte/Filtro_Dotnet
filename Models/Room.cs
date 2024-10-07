@@ -21,20 +21,21 @@ namespace PruebaNET_CarolinaBustamante.Models
         public required string RoomNumber { get; set; }
 
         [Column("price_per_night")]
-        [Required(ErrorMessage = "Room price per night is required.")] 
+        [Required(ErrorMessage = "Room price per night is required.")]
         public required double PricePerNight { get; set; }
 
         [Column("availability")]
-        [Required(ErrorMessage = "Room availability is required.")] 
+        [Required(ErrorMessage = "Room availability is required.")]
         public required bool Availability { get; set; }
 
         [Column("max_occupancy_persons")]
-        [Required(ErrorMessage = "Room max occupancy persons is required.")] 
+        [Required(ErrorMessage = "Room max occupancy persons is required.")]
         public required int MaxOcuppancy { get; set; }
-        
+
         [ForeignKey("room_type_id")]
         [Column("room_type_id")]
         public required int RoomTypeId { get; set; }
+        public RoomType RoomType { get; set; }
         public ICollection<Booking> Bookings { get; set; }
     }
 }

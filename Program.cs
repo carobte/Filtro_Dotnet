@@ -29,7 +29,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 //  Add Repositories and services
 builder.Services.AddScoped<IEmployeeRepository, EmployeeService>();
 builder.Services.AddScoped<IRoomTypeRepository, RoomTypesService>();
-
+builder.Services.AddScoped<IRoomRepository, RoomService>();
 
 // Add Utilites
 builder.Services.AddSingleton<Utilities>();

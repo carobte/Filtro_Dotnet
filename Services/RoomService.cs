@@ -2,41 +2,99 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using PruebaNET_CarolinaBustamante.Data;
 using PruebaNET_CarolinaBustamante.DTO.Room;
 using PruebaNET_CarolinaBustamante.Repositories;
 
 namespace PruebaNET_CarolinaBustamante.Services
 {
+
     public class RoomService : IRoomRepository
     {
-        public Task<bool> CheckExistence(int id)
+        protected readonly AppDbContext _context;
+
+        public RoomService(AppDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
 
-        public Task<IEnumerable<RoomDTO>> GetAll()
+        public async Task<IEnumerable<RoomDTO>> GetAll()
         {
-            throw new NotImplementedException();
+            var rooms = await _context.Rooms
+            .Include(room => room.RoomType)
+            .Select(room => new RoomDTO
+            {
+                Id = room.Id,
+                RoomNumber = room.RoomNumber,
+                PricePerNight = room.PricePerNight,
+                Availability = room.Availability,
+                MaxOcuppancy = room.MaxOcuppancy,
+                RoomType = room.RoomType.Name
+            }).ToListAsync();
+
+            return rooms;
         }
 
-        public Task<IEnumerable<RoomDTO>> GetAvailable()
+        public async Task<IEnumerable<RoomDTO>> GetAvailable()
         {
-            throw new NotImplementedException();
+            var roomsAvailable = await _context.Rooms
+            .Include(room => room.RoomType)
+            .Where(room => room.Availability)
+            .Select(room => new RoomDTO
+            {
+                Id = room.Id,
+                RoomNumber = room.RoomNumber,
+                PricePerNight = room.PricePerNight,
+                Availability = room.Availability,
+                MaxOcuppancy = room.MaxOcuppancy,
+                RoomType = room.RoomType.Name
+            }).ToListAsync();
+
+            return roomsAvailable;
         }
 
-        public Task<RoomDTO> GetById(int id)
+        public async Task<RoomDTO> GetById(int id)
         {
-            throw new NotImplementedException();
+            var room = await _context.Rooms
+            .Include(room => room.RoomType)
+            .FirstOrDefaultAsync(room => room.Id == id);
+
+            if (room == null)
+            {
+                return null;
+            }
+
+            var roomDto = new RoomDTO
+            {
+                Id = room.Id,
+                RoomNumber = room.RoomNumber,
+                PricePerNight = room.PricePerNight,
+                Availability = room.Availability,
+                MaxOcuppancy = room.MaxOcuppancy,
+                RoomType = room.RoomType.Name
+            };
+
+            return roomDto;
         }
 
-        public Task<IEnumerable<RoomDTO>> GetOccupied()
+        public async Task<IEnumerable<RoomDTO>> GetOccupied()
         {
-            throw new NotImplementedException();
-        }
 
-        public Task<IEnumerable<RoomDTO>> GetStatus()
-        {
-            throw new NotImplementedException();
+            var roomsOccupied = await _context.Rooms
+              .Include(room => room.RoomType)
+              .Where(room => !room.Availability)
+              .Select(room => new RoomDTO
+              {
+                  Id = room.Id,
+                  RoomNumber = room.RoomNumber,
+                  PricePerNight = room.PricePerNight,
+                  Availability = room.Availability,
+                  MaxOcuppancy = room.MaxOcuppancy,
+                  RoomType = room.RoomType.Name
+              }).ToListAsync();
+
+            return roomsOccupied;
         }
     }
 }
