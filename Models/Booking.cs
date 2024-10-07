@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Filtro_Dotnet.Models
 {
+    [Table("bookings")]
     public class Booking
     {
         [Key]
