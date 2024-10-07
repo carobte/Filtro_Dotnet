@@ -116,6 +116,7 @@ namespace PruebaNET_CarolinaBustamante.Services
         var guest = await _context.Guests.FindAsync(id);
         if (guest != null)
         {
+            guest.Id = guest.Id;
             guest.FirstName = guestDTO.FirstName;
             guest.LastName = guestDTO.LastName;
             guest.Email = guestDTO.Email;
